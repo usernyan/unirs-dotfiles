@@ -1,0 +1,16 @@
+#Debugging tip:
+#	Try using notify-send to see what's going on.
+#https://wiki.archlinux.org/title/Sxhkd
+
+#reload this config file
+super + Escape
+	killall sxhkd; setsid sxhkd
+
+# super + p
+#	dmenu_run
+
+super + Return
+	$TERMINAL
+
+super + g
+	cpupower-dmenu.sh
