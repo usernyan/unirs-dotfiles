@@ -14,3 +14,22 @@ super + Return
 
 super + g
 	cpupower-dmenu.sh
+
+#Audio and Playback
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioPause
+	playerctl pause
+
+XF86AudioLowerVolume
+	pulsemixer --change-volume -5; \
+	pkill -RTMIN+10 dwmblocks
+
+XF86AudioRaiseVolume
+	pulsemixer --change-volume 5; \
+	pkill -RTMIN+10 dwmblocks
