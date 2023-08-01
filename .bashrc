@@ -20,13 +20,13 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 
 alias ls='ls --color=auto'
 
-#prompt
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+function exit_status() {
+  RETURN_VAL=$?
+  [ $RETURN_VAL -ne 0 ] && printf "%s" "$(tput setaf 1)[$RETURN_VAL]$(tput sgr0)"
+}
 
-#vi keys
-set -o vi
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert 'Control-l: clear-screen'
+#prompt
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\`exit_status\`\\$ \[$(tput sgr0)\]"
 
 #add every directory under ~/.local/bin to PATH
 export PATH="$PATH:$( find ~/.local/bin -type d -printf %p: | sed 's/:$//' )"
