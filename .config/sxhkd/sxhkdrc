@@ -9,8 +9,8 @@ super + Escape
 # super + p
 #	dmenu_run
 
-super + Return
-	$TERMINAL
+# super + shift + Return
+#	$TERMINAL
 
 super + g
 	cpupower-dmenu.sh
