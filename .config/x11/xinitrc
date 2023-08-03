@@ -4,7 +4,7 @@ xrdb ~/.config/x11/xresources
 
 start_me="picom sxhkd dunst pipewire pipewire-pulse dwmblocks blueman-applet"
 for program in $start_me; do
-	pidof -xs "$program" || setsid "$program" &
+	pidof -xs "$program" || "$program" &
 done > /dev/null 2>&1
 
 (xss-lock \
