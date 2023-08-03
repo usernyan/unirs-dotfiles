@@ -1,10 +1,11 @@
 xset r rate 300 50
 
 xrdb ~/.config/x11/xresources
-picom -b
 
-setsid sxhkd &
-setsid dunst &
+start_me="picom sxhkd dunst pipewire pipewire-pulse dwmblocks"
+for program in $start_me; do
+	pidof -xs "$program" || setsid "$program" &
+done > /dev/null 2>&1
 
 (xss-lock \
 env \
@@ -14,5 +15,4 @@ XSECURELOCK_FONT="Atkinson Hypermono" \
 XSECURELOCK_SHOW_DATETIME=1 \
 xsecurelock & ) #screen locker
 
-setsid dwmblocks &
-dwm
+ssh-agent dwm
