@@ -10,6 +10,6 @@ elif [ "$user_choice" == 'hibernate' ]; then
   systemctl hibernate -i
 elif [ "$user_choice" == 'reboot' ]; then
   systemctl reboot -i
-elif [ "$user_choice" == 'hibernate' ]; then
+elif [ "$user_choice" == 'shutdown' ]; then
   systemctl poweroff -i
 fi
