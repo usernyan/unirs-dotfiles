@@ -12,6 +12,9 @@ super + Escape
 # super + shift + Return
 #	$TERMINAL
 
+super + q
+	system-actions.sh
+
 super + g
 	cpupower-dmenu.sh
 
