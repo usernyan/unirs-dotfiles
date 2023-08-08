@@ -20,8 +20,15 @@ super + g
 
 #Audio and Playback
 
+XF86AudioPrev
+	playerctl prev
+
 XF86AudioNext
 	playerctl next
+
+XF86AudioMute
+	pulsemixer --toggle-mute; \
+	pkill -RTMIN+10 dwmblocks
 
 XF86AudioPlay
 	playerctl play-pause
