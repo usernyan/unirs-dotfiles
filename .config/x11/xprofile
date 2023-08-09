@@ -20,4 +20,4 @@ XSECURELOCK_SHOW_DATETIME=1 \
 xsecurelock & ) #screen locker
 
 #set wallpaper
-[ -f "$HOME/.local/share/wallpaper"] && xwallpaper --center "$HOME/.local/share/wallpaper"
+[ -f "$HOME/.local/share/wallpaper" ] && xwallpaper --center "$HOME/.local/share/wallpaper"
