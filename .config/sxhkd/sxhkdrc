@@ -18,6 +18,9 @@ super + q
 super + g
 	cpupower-dmenu.sh
 
+super + n
+	st -e nmtui
+
 #Audio and Playback
 
 XF86AudioPrev
