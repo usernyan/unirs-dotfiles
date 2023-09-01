@@ -21,6 +21,9 @@ super + g
 super + n
 	st -e nmtui
 
+super + shift + h
+	st -e helix ~/.local/share/help_document.txt
+
 #Audio and Playback
 
 XF86AudioPrev

@@ -1,0 +1,21 @@
+# What are the basic shortcuts?
+`super + shift + h` opens this document
+`super + q` opens the system actions (like quitting) menu
+`super + p` opens dmenu_run to launch programs.
+For dwm:
+`super + shift + q` closes dwm
+`super + shift + enter` opens a st, the terminal
+`super + j/k` cycles though the focused window
+`super + enter` swaps a window into the master pane (the left side)
+`super + shift + c` closes the window
+
+
+# How do I change Shortcuts?
+Edit ~/.config/sxhkd/sxhkdr
+or
+For dwm shortcuts, edit ~/.local/src/config.h and recompile with `sudo make install`
+
+# How do I connect to the internet?
+Use `super + n` to open nmtui
+
+
