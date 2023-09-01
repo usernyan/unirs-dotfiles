@@ -4,6 +4,10 @@ dwm.borderpx: 2
 dwm.font: Atkinson Hypermono:pixelsize=16:antialias=true:autohint=true
 dwm.dmenufont: Atkinson Hypermono:pixelsize=16:antialias=true:autohint=true
 
+dmenu.font: Atkinson Hypermono:pixelsize=16:antialias=true:autohint=true
+dmenu.dmenufont: Atkinson Hypermono:pixelsize=16:antialias=true:autohint=true
+dmenu.color4:#999999
+
 st.font: Atkinson Hypermono:pixelsize=16:antialias=true:autohint=true
 st.alpha: 0.9
 
