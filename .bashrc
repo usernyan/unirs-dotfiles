@@ -6,9 +6,11 @@
 [[ $- != *i* ]] && return
 
 #variables
-EDITOR=helix
-VISUAL=helix
-TERMINAL=st
+export EDITOR=helix
+export VISUAL=helix
+export TERMINAL=st
+
+export GIT_EDITOR=helix
 
 #XDG dirs
 export XDG_CONFIG_HOME="$HOME/.config"
