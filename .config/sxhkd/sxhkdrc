@@ -55,3 +55,7 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	pulsemixer --change-volume 5; \
 	pkill -RTMIN+10 dwmblocks
+
+#Screenshots
+Print + {_,shift,ctrl,alt} + {_,super}
+	shot -l {full,rect,focus,rect_in_win} {'',-s ~/Pictures/screenshots}
