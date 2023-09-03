@@ -12,6 +12,7 @@ For dwm:
 `super + shift + <number>` moves a window to tab <number>
 `super + right/left click` resizes/moves windows
 `super + shift + space`	toggles floating for the selected window
+`super + b` toggles the status bar
 
 # How do I change Shortcuts?
 Edit ~/.config/sxhkd/sxhkdrc
