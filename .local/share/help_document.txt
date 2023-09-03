@@ -8,14 +8,23 @@ For dwm:
 `super + j/k` cycles though the focused window
 `super + enter` swaps a window into the master pane (the left side)
 `super + shift + c` closes the window
-
+`super + <number>` changes the current tab to <number>
+`super + shift + <number>` moves a window to tab <number>
+`super + right/left click` resizes/moves windows
+`super + shift + space`	toggles floating for the selected window
 
 # How do I change Shortcuts?
-Edit ~/.config/sxhkd/sxhkdr
+Edit ~/.config/sxhkd/sxhkdrc
 or
-For dwm shortcuts, edit ~/.local/src/config.h and recompile with `sudo make install`
+For dwm shortcuts, edit ~/.local/src/dwm/config.h and recompile with `sudo make install` (while in its directory)
 
 # How do I connect to the internet?
 Use `super + n` to open nmtui
+
+# How do I connect bluetooth devices?
+Launch blueman-manager
+
+# How do I mount media?
+Use `super + u` and `super + y` to mount and unmount respectively
 
 
