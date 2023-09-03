@@ -15,14 +15,20 @@ super + Escape
 super + q
 	system-actions.sh
 
+super + shift + h
+	st -e helix ~/.local/share/help_document.txt
+
 super + g
 	cpupower-dmenu.sh
 
 super + n
 	st -e nmtui
 
-super + shift + h
-	st -e helix ~/.local/share/help_document.txt
+super + u
+	unmount-udisk.sh
+
+super + y
+	mount-udisk.sh
 
 #Audio and Playback
 
