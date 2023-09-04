@@ -1,0 +1,34 @@
+/* Edited from */
+/* https://www.reddit.com/r/FirefoxCSS/comments/gk93p2/help_in_creating_a_transparent_userchromecss/ */
+
+:root {
+ --main-bg-color:rgba(33, 37, 41, 0.5);
+}
+
+window, #main-window, #toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox,#sidebar-box{
+ background-color: rgba(41,47,52,0.4) !important;
+ -moz-appearance: none !important;
+ background-image: none !important;
+}
+
+window, #nav-bar{
+ background-color: var(--main-bg-color) !important;
+ -moz-appearance: none !important;
+ background-image: none !important;
+}
+
+.tab-background[selected="true"] {
+ background: var(--main-bg-color) !important;
+ -moz-appearance: none !important;
+ background-image: none !important;
+}
+
+#urlbar-background {
+ background: var(--main-bg-color) !important;
+ -moz-appearance: none !important;
+ background-image: none !important;
+}
+
+#appcontent * {
+  background-color: var(--main-bg-color) !important;
+}
