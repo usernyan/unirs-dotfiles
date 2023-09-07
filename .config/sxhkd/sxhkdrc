@@ -24,6 +24,9 @@ super + g
 super + n
 	st -e nmtui
 
+super + a
+	st -e pulsemixer
+
 super + u
 	unmount-udisk.sh
 
