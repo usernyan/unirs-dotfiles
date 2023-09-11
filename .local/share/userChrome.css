@@ -1,34 +1,124 @@
-/* Edited from */
-/* https://www.reddit.com/r/FirefoxCSS/comments/gk93p2/help_in_creating_a_transparent_userchromecss/ */
+/* https://www.userchrome.org/ */
+
+/*
+ * edited version of:
+https://github.com/rkcpn/simple-transparent-firefox/blob/main/userChrome.css
+*/
+
+/*TODO: take some code from this:
+ *https://github.com/Filip-Sutkowy/blurclean-firefox-theme/tree/master
+ */
 
 :root {
- --main-bg-color:rgba(33, 37, 41, 0.5);
+  --bg: rgba(33, 37, 41, 0.80);
+  --bg-url-bar: rgba(33, 37, 41, 0.95);
+  --bg-opaque: rgba(33, 37, 41, 1); /*unused*/
+  --bg-dark-opaque: rgba(10, 18, 26, 1);
+  --bg-selected: #FFFFFF28;
 }
 
-window, #main-window, #toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox,#sidebar-box{
- background-color: rgba(41,47,52,0.4) !important;
- -moz-appearance: none !important;
- background-image: none !important;
+/*
+Adds an opaque block behind tab icons.
+*/
+.tab-icon-image {
+  background: var(--bg-dark-opaque) !important;
+	/*background: linear-gradient(-45deg, rgb(33, 37, 41), #89A) !important;*/
+  padding: 2px;
+  border-radius: 20%;
 }
 
-window, #nav-bar{
- background-color: var(--main-bg-color) !important;
- -moz-appearance: none !important;
- background-image: none !important;
+/* window transparencies */
+#main-window {
+	background: var(--bg) !important;
 }
 
-.tab-background[selected="true"] {
- background: var(--main-bg-color) !important;
- -moz-appearance: none !important;
- background-image: none !important;
+
+/*
+Gives a lighter and color to the selected tab.
+'--bg-selected' overlayed atop the '--bg'-colored #main-window
+*/
+tab.tabbrowser-tab[selected="true"] stack.tab-stack vbox.tab-background {
+	background: var(--bg-selected) !important;
 }
 
-#urlbar-background {
- background: var(--main-bg-color) !important;
- -moz-appearance: none !important;
- background-image: none !important;
+.panel-subview-body, toolbar, splitter#sidebar-splitter, .sidebar-panel, window#main-window, #nav-bar, #navigator-toolbox, #toolbar-menubar, #TabsToolbar, #PersonalToolbar, #navigator-toolbox, #sidebar-box {
+	background: transparent !important;
 }
 
-#appcontent * {
-  background-color: var(--main-bg-color) !important;
+/*
+This overlaps the color of the toolbar
+So the bar looks very opaque, but its worth it
+for when the bar expands and sits in front of other ui elements.
+It also makes the url easier to read anyway /shrug
+*/
+hbox#urlbar-background {
+	background: var(--bg-url-bar) !important;
 }
+
+/*
+Makes main browser content transparent when transitioning 
+between pages during loading or when certain URIs are opened in a new tab (ctrl + click)
+Note: this also results in a flash of transparent background
+when, for example, making a youtube vid fullscreen.
+*/
+tabpanels {
+  background: transparent !important;
+}
+
+
+/*
+Note: I tried making the bg of about:blank transparent,
+so making every element on the page transparent in userContent.css,
+but even making _all elements_ transparent did nothing,
+must not be possible...
+
+If tabpanels are transparent,
+deleting both "browser" tags that take up that space lets the transparency through,
+so that's what needs to be transparent...
+(this code shows what I mean)
+browser { opacity: 0%; }
+(or)
+browser {visibility: hidden !important; }
+
+The solid background color appears to change whether you select "light" or "dark"
+in the browser settings, even when the page has nothing on it,
+that solid background color must be rendered by firefox at a place this css can't reach...
+
+there's a thing called a "frameLoader" in the source code
+the browser tags each have a .frameLoader property in the DOM
+*/
+
+
+
+/*
+idea: set our newtab to about:blank,
+when the selected tab is newtab, make all <browser> tags transparent
+*/
+
+/*
+A tab for a real website might be able to set its title to "New Tab",
+but I don't think it can access chrome:// for its icon
+but about:blank doesn't have an icon... only about:newtab
+tab.tabbrowser-tab[selected="true"][label="New Tab"][image="chrome://branding/content/icon32.png"]
+*/
+
+/*for when the :has selector is introduced into firefox*/
+/* go to layout.css.has-selector.enabled on about:config, enable. Comments say this still doesn't work anyway tho*/
+/*
+this is totally broken lol. It looks like it only recomputes the rule when I save/edit this file,
+so the browser tags are just stuck with the opacity set then, instead of changing as I switch tabs
+
+every once in a while it works, but only when switching tabs,
+not when a tab changes from a newtab to something else (like entering a search query in that new tab)
+
+try again when the :has selector is fully implemented
+also make it only select browsers in the webpage area, not all browsers
+*/
+
+/* a browser tag, child of an html tag that's parent of selected new tab page*/
+/*
+html:has(tab.tabbrowser-tab[selected="true"][label="New Tab"][image="chrome://branding/content/icon32.png"]) browser
+{
+  opacity: 0% !important;
+}
+*/
