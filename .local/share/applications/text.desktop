@@ -1,0 +1,4 @@
+# TODO: add nsxiv to UNIRS
+Type=Application
+Name=Text Editor
+Exec=st -e helix %U

@@ -1,0 +1,3 @@
+Type=Application
+Name=Image Viewer
+Exec=nsxiv -a %U
