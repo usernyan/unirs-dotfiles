@@ -29,6 +29,4 @@ Use `super + n` to open nmtui
 Launch blueman-manager
 
 # How do I mount media?
-Use `super + u` and `super + y` to mount and unmount respectively
-
-
+Use `super + u` to open bashmount
