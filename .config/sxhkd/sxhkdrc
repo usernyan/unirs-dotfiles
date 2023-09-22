@@ -28,10 +28,7 @@ super + a
 	st -e pulsemixer
 
 super + u
-	unmount-udisk.sh
-
-super + y
-	mount-udisk.sh
+	st -e bashmount
 
 #Audio and Playback
 
